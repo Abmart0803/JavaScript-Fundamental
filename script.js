@@ -286,4 +286,197 @@ const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(bills, tips, total);
 
 
+// Introduction to Objects.
 
+const martins3 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  age: 2023-1980,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu']
+};
+
+console.log(martins3);
+
+//Ways of getting properties from object.
+//1. Dot Notation
+
+const martins4 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  age: 2023-1980,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu']
+};
+
+const gettingFirstName = martins4.firstName;
+console.log(gettingFirstName);
+
+const gettingLastName = martins4.lastName;
+console.log(gettingLastName);
+
+const gettinfJob = martins4.job;
+console.log(gettinfJob);
+
+// Bracket Notation.
+const martins5 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  age: 2023-1980,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu']
+};
+
+const gettingAge = martins5['age'];
+console.log(gettingAge);
+
+const gettingFriends = martins5['frinds'];
+console.log(gettingFriends);
+
+const nameKey = 'Name';
+const getFName = martins5['first' + nameKey];
+console.log(getFName);
+
+const getLName = martins5['last' + nameKey];
+console.log(getLName);
+
+// const interestedIn = prompt('What do you want to know about Martins? Choose between irstName, lastName, age, job, and friends');
+// const answer = martins5[interestedIn]
+
+
+// if (martins5[interestedIn]) {
+//   console.log(answer);
+// } else {
+//   console.log('Wrong request! Choose between irstName, lastName, age, job, and friends');
+// }
+
+
+//adding properties to the objact with dot notation and bracket notation.
+
+martins5.location = 'Qatar';
+martins5.twitter = '@Abmartmartins';
+console.log(martins5);
+
+
+//Small Challenge
+//write martin has 3 friends, and his best friend is Micheal. 
+
+//Solution.
+const martin = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  age: 2023-1980,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu']
+};
+
+const challenge = `${martin.firstName} has ${martin.friends.length} friends, and his best friend is ${martin.friends[0]}`;
+
+console.log(challenge);
+
+//Object Methods.
+const martin2 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  birthYear: 1980,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu'],
+  hasDriverLicense: true,
+  calAge: function() {
+    return 2023 - this.birthYear;
+  }
+};
+
+const ageMart = martin2.calAge();
+
+console.log(ageMart);
+
+const martin3 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  birthYear: 1975,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu'],
+  hasDriverLicense: true,
+  calAge: function() {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  }
+};
+
+const ageMart2 = martin3.calAge();
+console.log(ageMart2);
+
+//Small Challenge
+//write martin is 46 years old web developer, and has a /no drivers licence.. 
+
+//Solution.
+const martin4 = {
+  firstName: 'Martins',
+  lastName: 'Abiola',
+  birthYear: 1975,
+  job: 'Web Developer',
+  friends: ['Michael', 'Steven', 'Sade', 'Tolu'],
+  hasDriverLicense: true,
+  calAge: function() {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function() {
+    return `${this.firstName} is a ${this.calAge()} years old ${this.job}, and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license.`;
+  }
+};
+const challenge2 = martin4.getSummary();
+console.log(challenge2);
+
+//challenge 3.
+// Coding Challenge #3
+// Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+// implement the calculations! Remember: BMI = mass / height ** 2 = mass
+// / (height * height) (mass in kg and height in meter)
+// Your tasks:
+// 1. For each of them, create an object with properties for their full name, mass, and
+// height (Mark Miller and John Smith)
+// 2. Create a 'calcBMI' method on each object to calculate the BMI (the same
+// method on both objects). Store the BMI value to a property, and also return it
+// from the method
+// 3. Log to the console who has the higher BMI, together with the full name and the
+// respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+// Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
+// tall.
+// GOOD LUCK 😀
+
+
+//Solution.
+const markMiller = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function() {
+    this.getBMI = this.mass / (this.height * this.height);
+    return this.getBMI;
+    
+  }
+}
+markMiller.calcBMI();
+console.log(markMiller.getBMI)
+
+const johnSmith = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function() {
+    this.getBMI = this.mass / (this.height * this.height);
+    return this.getBMI;
+    
+  }
+}
+johnSmith.calcBMI();
+console.log(johnSmith.getBMI);
+
+if (markMiller.getBMI > johnSmith.getBMI) {
+  console.log(`${markMiller.fullName}'s BMI (${markMiller.getBMI}) is higher than ${johnSmith.fullName}'s BMI (${johnSmith.getBMI})`)
+} else if (johnSmith.getBMI > markMiller.getBMI) {
+  console.log(`${johnSmith.fullName}'s BMI (${johnSmith.getBMI}) is higher than ${markMiller.fullName}'s BMI (${markMiller.getBMI})`)  
+}
