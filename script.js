@@ -480,3 +480,136 @@ if (markMiller.getBMI > johnSmith.getBMI) {
 } else if (johnSmith.getBMI > markMiller.getBMI) {
   console.log(`${johnSmith.fullName}'s BMI (${johnSmith.getBMI}) is higher than ${markMiller.fullName}'s BMI (${markMiller.getBMI})`)  
 }
+
+//Iteration: The for loop: Loops are a fundamental aspect of every programming language because they basicly allow  us automate repitative
+// tasks, tasks that we have to perform over and over again.
+//Example: assuming we want to do 10 or more weight lifting activities in gym, we will need to keep writing the console.log for as many 
+//weight lifting we want to do  which will break the DRY rules, DRY==> Don't Repeat Yourself. Instead we can use for loop with a signle 
+//line of code.
+
+//10 weights lifting without using for loop.
+console.log('Lifting weights Repitation 1 🏋️');
+console.log('Lifting weights Repitation 2 🏋️');
+console.log('Lifting weights Repitation 3 🏋️');
+console.log('Lifting weights Repitation 4 🏋️');
+console.log('Lifting weights Repitation 5 🏋️');
+console.log('Lifting weights Repitation 6 🏋️');
+console.log('Lifting weights Repitation 7 🏋️');
+console.log('Lifting weights Repitation 8 🏋️');
+console.log('Lifting weights Repitation 9 🏋️');
+console.log('Lifting weights Repitation 10 🏋️');
+
+
+//Using for loop
+for (let rep = 1; rep <= 10; rep ++) {
+  console.log('Lifting weights Repitation 1 🏋️');
+};
+
+//Using for Loop and dynamically write the console.log message to print the 10 or more times.
+for (let rep = 1; rep <= 10; rep ++) {
+  console.log(`Lifting weights Repitation ${rep} 🏋️`);
+};
+
+
+// Looping: Arrays, Breaking and Coninuing.
+//We can use looping e.g for loop to iterate through an array, like below example.
+
+const clinton = [
+  'Martins',
+  'Abiola',
+  2023 - 1980,
+  'Web Developer',
+  ['Micheal', 'Peter', 'Steven'],
+  true
+]
+
+for (let i = 0; i < clinton.length; i ++) {
+  console.log(clinton[i], typeof clinton[i]);
+}
+
+// We ca also use the for loop to make a new array from original array  typeOf.
+const samuel = [
+  'Samuel',
+  'Abiola',
+  2023 - 2012,
+  'Web Developer',
+  ['Micheal', 'Peter', 'Steven'],
+  true
+]
+
+const types = [];
+const types2 = [];
+
+for (let i = 0; i < samuel.length; i ++) {
+  console.log(samuel[i], typeof samuel[i]);
+
+  types[i] = typeof samuel[i];
+
+  //we can also use push to make the second array (types2).
+  types2.push(typeof samuel[i]);
+}
+
+console.log(types);
+console.log(types2);
+
+//Another Example.
+const years2 = [1991, 2007, 1969, 2004, 2008, 2012];
+const agges = [];
+
+for (let i = 0; i < years2.length; i ++) {
+  const subtAge = 2023 - years2[i];  
+  agges.push(subtAge);
+}
+
+console.log(agges);
+
+// Breaking And Continuing.
+//Countinuing: This is when we set a specifi rules for our for loop to exclude some of the elements of the loop.
+//Example.
+const timmy = [
+  'Martins',
+  'Abiola',
+  2023 - 1980,
+  'Web Developer',
+  ['Micheal', 'Peter', 'Steven'],
+  true
+]
+
+console.log("**********String ONLY***********")
+for (let i = 0; i < timmy.length; i ++) {
+  if (typeof timmy[i] !== 'string') continue;
+
+  console.log(timmy[i], typeof timmy[i]);
+}
+//Break.
+console.log("**********BREAK WITH NUMBER***********")
+for (let i = 0; i < timmy.length; i ++) {
+  if (typeof timmy[i] === 'number') break;
+
+  console.log(timmy[i], typeof timmy[i]);
+};
+
+//Looping Backwards and Loops in loops.
+//1. Looping Backward.
+const timmy2 = [
+  'Martins',
+  'Abiola',
+  2023 - 1980,
+  'Web Developer',
+  ['Micheal', 'Peter', 'Steven'],
+  true
+]
+
+for (let i = timmy2.length - 1; i >= 0; i --) {
+  console.log(i, timmy2[i]);
+};
+
+//Loops in loops.
+
+for (let exercise = 1; exercise < 4; exercise ++) {
+  console.log(`----------- Starting Exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep ++) {
+    console.log(`Exercise ${exercise}: Lifting Weight Repetition ${rep} 🏋️‍♂️`);
+  }
+}
