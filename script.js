@@ -694,6 +694,7 @@ const calculateAverage = function(arr) {
 }
 console.log(calculateAverage([2, 3, 7]));
 console.log(calculateAverage([15, 33, 47]));
+console.log(calculateAverage([35, 43, 57]));
 console.log(calculateAverage(total2));
 console.log(calculateAverage(tips2));
 
