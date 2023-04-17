@@ -613,3 +613,87 @@ for (let exercise = 1; exercise < 4; exercise ++) {
     console.log(`Exercise ${exercise}: Lifting Weight Repetition ${rep} 🏋️‍♂️`);
   }
 }
+
+// While Loop: while loop is slictly different from for loop, as counter will be define outside 
+//the loop and the condition will be define inside the loop, the counter will be increase or decrease after the loop.
+
+//Example to compare for loop and whie loop doing same task.
+
+for (let rep = 1; rep <= 10; rep ++) {
+  console.log(`Lifting weights Repitation ${rep} 🏋️: this is with for loop.`);
+};
+
+let rep = 1;
+while (rep <= 10) {
+  console.log(`Lifting weights Repitation ${rep} 🏋️: this is with while loop.`);
+  rep ++;
+}
+
+// While loop does not really need counter at times to work. check the example below.
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`You Rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1; 
+  if (dice === 6) console.log('Loop is about to End.')
+}
+
+//Challenge 4.
+// Coding Challenge #4
+// Let's improve Steven's tip calculator even more, this time using loops!
+// Your tasks:
+// 1. Create an array 'bills' containing all 10 test bill values
+// 2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+// 3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate
+// tips and total values (bill + tip) for every bill value in the bills array. Use a for
+// loop to perform the 10 calculations!
+// Test data: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+// Hints: Call ‘calcTip ‘in the loop and use the push method to add values to the
+// tips and totals arrays 😉
+// Bonus:
+// 4. Bonus: Write a function 'calcAverage' which takes an array called 'arr' as
+// an argument. This function calculates the average of all numbers in the given
+// array. This is a difficult challenge (we haven't done this before)! Here is how to
+// solve it:
+// 4.1. First, you will need to add up all values in the array. To do the addition,
+// start by creating a variable 'sum' that starts at 0. Then loop over the
+// array using a for loop. In each iteration, add the current value to the
+// 'sum' variable. This way, by the end of the loop, you have all values
+// added together
+// 4.2. To calculate the average, divide the sum you calculated before by the
+// length of the array (because that's the number of elements)
+// 4.3. Call the function with the 'totals' array
+// GOOD LUCK 😀
+
+//Solution.
+const calcTip2 = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+}
+const bills2 = [ 22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = [];
+const total2 = [];
+
+for (let i = 0; i < bills2.length; i ++) {
+  const tip = calcTip2(bills2[i]);
+  tips2.push(tip);
+  total2.push(tip + bills2[i]);
+}
+
+console.log(bills2, tips2, total2);
+
+// Bonus Challenge.
+
+const calculateAverage = function(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    //sum = sum + arr[i];//this is correct or the below code
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+console.log(calculateAverage([2, 3, 7]));
+console.log(calculateAverage([15, 33, 47]));
+
+
+
